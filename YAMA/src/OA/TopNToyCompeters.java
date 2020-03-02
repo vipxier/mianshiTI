@@ -36,16 +36,24 @@ public class TopNToyCompeters {
 
 		for (int lineNum = 0; lineNum < quotes.length; lineNum++) {
 			String quote = quotes[lineNum];
-			for (String word : quote.split(" ")) {
-				String toyName = getToyName(word, toySet);
-				if (toyName.length() > 0) {
-					if (!wordOccuranceInQuoteMap.containsKey(toyName)) {
-						wordOccuranceInQuoteMap.put(toyName, new HashSet<Integer>());
-						wordOccuranceMap.put(toyName, 1);
+			StringBuilder strb = new StringBuilder();
+			for (char c : quote.toCharArray()) {
+				if (Character.isLetterOrDigit(c)) {
+					strb.append(c);
+				} else {
+					strb.append(' ');
+				}
+			}
+			for (String word : strb.toString().split(" ")) {
+				word = word.toLowerCase();
+				if (toySet.contains(word)) {
+					if (!wordOccuranceInQuoteMap.containsKey(word)) {
+						wordOccuranceInQuoteMap.put(word, new HashSet<Integer>());
+						wordOccuranceMap.put(word, 1);
 					} else {
-						wordOccuranceMap.put(toyName, wordOccuranceMap.get(toyName) + 1);
+						wordOccuranceMap.put(word, wordOccuranceMap.get(word) + 1);
 					}
-					wordOccuranceInQuoteMap.get(toyName).add(lineNum);
+					wordOccuranceInQuoteMap.get(word).add(lineNum);
 				}
 			}
 		}
@@ -64,14 +72,12 @@ public class TopNToyCompeters {
 	}
 
 	private String getToyName(String word, Set<String> toySet) {
-		for(String toyName : toySet)
-		{
-			if(word.toLowerCase().contains(toyName))
-			{
+		for (String toyName : toySet) {
+			if (word.toLowerCase().contains(toyName)) {
 				return toyName;
 			}
 		}
-		
+
 		return "";
 	}
 
