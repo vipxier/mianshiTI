@@ -71,15 +71,6 @@ public class TopNToyCompeters {
 		return result;
 	}
 
-	private String getToyName(String word, Set<String> toySet) {
-		for (String toyName : toySet) {
-			if (word.toLowerCase().contains(toyName)) {
-				return toyName;
-			}
-		}
-
-		return "";
-	}
 
 	public static void main(String[] args) {
 		TopNToyCompeters solution = new TopNToyCompeters();
