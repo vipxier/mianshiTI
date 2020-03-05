@@ -42,7 +42,7 @@ public class MiniHeap {
 	
 	private boolean hasParent(int childIndex)
 	{
-		return getParentIndex(childIndex) >= 0;
+		return 
 	}
 
 	private int getLeftChild(int parentIndex) {
@@ -90,7 +90,6 @@ public class MiniHeap {
 			if (hasRightChild(parentIndex) && getRightChild(parentIndex) < getLeftChild(parentIndex)) {
 				smallerChildIndex = getRightChildIndex(parentIndex);
 			}
-			
 			if (array[parentIndex] == array[smallerChildIndex]) {
 				break;
 			} else {
