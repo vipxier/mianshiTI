@@ -13,4 +13,14 @@ public class ListUtils {
 		
 		return dummyNode.next;
 	}
+	
+	public static void printList(ListNode head)
+	{
+		System.out.println();
+		while(head != null)
+		{
+			System.out.print(head.val + " ");
+			head = head.next;
+		}
+	}
 }

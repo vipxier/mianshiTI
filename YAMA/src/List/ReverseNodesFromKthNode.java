@@ -1,6 +1,7 @@
 package List;
 
-public class ReverseNodesinKGroup {
+public class ReverseNodesFromKthNode
+{
 	public ListNode reverseKGroup(ListNode head, int k) {
 		if (head == null || head.next == null) {
 			return head;
@@ -9,6 +10,7 @@ public class ReverseNodesinKGroup {
 		ListNode prevSecondPartHead = head;
 		while (k > 1 && prevSecondPartHead != null) {
 			prevSecondPartHead = prevSecondPartHead.next;
+			k--;
 		}
 
 		if (k > 1) {
@@ -27,6 +29,34 @@ public class ReverseNodesinKGroup {
 		head.next = reverse(secondPartHead);
 
 		return firstPartHead;
+	}
+	
+	public ListNode reverseKGroup_secondSolution(ListNode head, int k) {
+		if(head == null || head.next == null)
+		{
+			return head;
+		}
+		
+		ListNode prevSecondPartHead = head;
+		
+		while(k > 1 && prevSecondPartHead != null)
+		{
+			prevSecondPartHead = prevSecondPartHead.next;
+			k --;
+		}
+		
+		ListNode secondPartHead = prevSecondPartHead.next;
+		ListNode currentNode = secondPartHead;
+		
+		while(currentNode != null && currentNode.next != null)
+		{
+			currentNode = currentNode.next;
+		}
+		
+		currentNode.next = head;
+		prevSecondPartHead.next = null;
+		
+		return reverse(secondPartHead);
 	}
 
 	private ListNode reverse(ListNode head) {
@@ -48,9 +78,15 @@ public class ReverseNodesinKGroup {
 		return prevNode;
 	}
 
-	public static void main() {
+	public static void main(String[] args) {
 		ListNode head = ListUtils.generateListFromArray(new int[] { 1, 2, 3, 4, 5, 6, 7 });
-		ReverseNodesinKGroup solution = new ReverseNodesinKGroup();
-		System.out.println(solution.reverseKGroup(head, 2));
+		ReverseNodesFromKthNode solution = new ReverseNodesFromKthNode();
+		ListNode reversedHead = solution.reverseKGroup(head, 2);
+		ListUtils.printList(reversedHead);
+		
+		head = ListUtils.generateListFromArray(new int[] { 1, 2, 3, 4, 5, 6, 7 });
+		ListNode reverseResult = solution.reverseKGroup_secondSolution(head, 2);
+		ListUtils.printList(reverseResult);
+		
 	}
 }
