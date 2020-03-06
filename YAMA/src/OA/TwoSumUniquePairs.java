@@ -30,7 +30,6 @@ public class TwoSumUniquePairs {
             int sum = nums[start] + nums[end];
             if(sum == target)
             {
-                
                 resultCounter ++;
                 start ++;
                 end --;

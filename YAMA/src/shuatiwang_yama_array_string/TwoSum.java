@@ -84,6 +84,38 @@ public class TwoSum {
 		return result;
 	}
 	
+	public int closestTwoSum(int[] nums, int target)
+	{
+		int maxSum = Integer.MIN_VALUE;
+		
+		Arrays.sort(nums);
+		int start =0;
+		int end = nums.length - 1;
+		
+		while(start < end)
+		{
+			int sum = nums[start] + nums[end];
+			if(sum > target)
+			{
+				end --;
+			}
+			else
+			{
+				if(sum == target)
+				{
+					return target;
+				}
+				else
+				{
+					maxSum = Math.max(sum, maxSum);
+				}
+				start ++;
+			}
+		}
+			
+		return maxSum;
+	}
+	
 	public static void main(String[] args)
 	{
 //		int[] array = new int[] {1,7,8,10,9,7,4};
@@ -94,14 +126,16 @@ public class TwoSum {
 		int[] nums = new int[] {-4, 0, 1, 2, -1, -1};
 		int[] nums1 = {0,0, 0,0};
 		
-		for(List<Integer> list : solution.getAllTwoSums(nums, 1))
-		{
-			System.out.println(list);
-		}
+//		for(List<Integer> list : solution.getAllTwoSums(nums, 4))
+//		{
+//			System.out.println(list);
+//		}
+//		
+//		for(List<Integer> list : solution.getAllTwoSums(nums1, 0))
+//		{
+//			System.out.println(list);
+//		}
 		
-		for(List<Integer> list : solution.getAllTwoSums(nums1, 0))
-		{
-			System.out.println(list);
-		}
+		System.out.println(solution.closestTwoSum(nums, 4));
 	}
 }
