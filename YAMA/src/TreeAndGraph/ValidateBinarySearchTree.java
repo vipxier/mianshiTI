@@ -1,4 +1,4 @@
-package Tree;
+package TreeAndGraph;
 
 public class ValidateBinarySearchTree {
 	 public boolean isValidBST(TreeNode root) {

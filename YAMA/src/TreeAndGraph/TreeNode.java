@@ -1,4 +1,4 @@
-package Tree;
+package TreeAndGraph;
 
 public class TreeNode {
 	TreeNode left;
