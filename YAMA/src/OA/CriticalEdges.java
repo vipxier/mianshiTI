@@ -35,7 +35,6 @@ public class CriticalEdges {
 			this.neighbors[source].remove(destination);
 			this.neighbors[destination].remove(source);
 		}
-		
 	}
 	public List<int[]> getCriticalEdges(int numNodes, int numEdges, int[][] edges)
 	{

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Queue;
 
 public class TreeSerializeAndDeserialize {
-	public String serailize(TreeNode root) {
+	public static String serailize(TreeNode root) {
 		if (root == null) {
 			return "[]";
 		}
@@ -49,7 +49,7 @@ public class TreeSerializeAndDeserialize {
 		return strb.toString();
 	}
 
-	public TreeNode deserailize(String str) {
+	public static TreeNode deserailize(String str) {
 		if (str == "[]") {
 			return null;
 		}
@@ -86,7 +86,7 @@ public class TreeSerializeAndDeserialize {
 
 	public static void main(String[] args) {
 
-		String treeString = "[1,2,3,4,#,5,6]";
+		String treeString = "[4,-7,-3,#,#,-9,-3,9,-7,-4,#,6,#,-6,-6,#,#,0,6,5,#,9,#,#,-1,-4,#,#,#,-2]";
 		TreeSerializeAndDeserialize solution = new TreeSerializeAndDeserialize();
 		TreeNode root = solution.deserailize(treeString);
 		System.out.println(solution.serailize(root));
