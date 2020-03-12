@@ -26,7 +26,7 @@ public class MiniHeap {
 	private int getRightChildIndex(int parentIndex)
 	{
 		return parentIndex * 2 + 1;
-	}_
+	}
 
 	private int getParentIndex(int childIndex) {
 		return (childIndex + 1) / 2;
@@ -42,7 +42,7 @@ public class MiniHeap {
 	
 	private boolean hasParent(int childIndex)
 	{
-		return 
+		return getParent(childIndex) >= 0;
 	}
 
 	private int getLeftChild(int parentIndex) {
